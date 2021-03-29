@@ -24,28 +24,35 @@ import java.sql.PreparedStatement
 
         var selectsql = "select*from member"
         @RequestMapping("getResult")
-            fun main(): String {
+            fun main(): ArrayList<Member> {
+//                var memberList:Array<Member>
+                var memberList: ArrayList<Member> = ArrayList()
                 try{
                     Class.forName(driver);
                     conn = DriverManager.getConnection(url, username, password);
                     ps=conn?.prepareStatement(selectsql);
-                    rs=ps?.executeQuery();
-
+                    rs=ps?.executeQuery();  System.out.println("/////////////////");
+                    println(rs)
                     //5.查询数据库中的单个对象数据
                     while(rs?.next() == true){
-                        var obj = Member()
                         var id= rs!!.getString(1);
                         var name= rs!!.getString(2);
                         var mail= rs!!.getString(3);
-                        obj.id = id
-                        obj.name = name
-                        obj.email = mail
+                        var obj = Member(
+                            id = id,
+                            name = name,
+                            email = mail
+                        )
+                        println(obj)
+                        memberList.add(obj)
                         System.out.println("编号="+id);
                         System.out.println("姓名="+name);
                         System.out.println("信箱="+mail);
                         System.out.println(obj)
                     }
-                    System.out.println("/////////////////");
+                    println("========")
+                    println(memberList)
+
                 } catch (e: ClassNotFoundException) {
                     System.out.println("没有找到该类，请导入相应jar包");
                     e.printStackTrace();
@@ -64,14 +71,14 @@ import java.sql.PreparedStatement
 
                 }
 //                return "Hello World"
-                return "Hello"
+                    return memberList
             }
 
     }
 
 
-class Member {
-    var id: String = "";
-    var name: String = "";
-    var email: String = "";
-}
+data class Member (
+    var id: String,
+    var name: String,
+    var email: String
+    )
