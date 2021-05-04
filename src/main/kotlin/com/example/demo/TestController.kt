@@ -43,16 +43,8 @@ import java.sql.PreparedStatement
                             name = name,
                             email = mail
                         )
-                        println(obj)
                         memberList.add(obj)
-                        System.out.println("编号="+id);
-                        System.out.println("姓名="+name);
-                        System.out.println("信箱="+mail);
-                        System.out.println(obj)
                     }
-                    println("========")
-                    println(memberList)
-
                 } catch (e: ClassNotFoundException) {
                     System.out.println("没有找到该类，请导入相应jar包");
                     e.printStackTrace();
