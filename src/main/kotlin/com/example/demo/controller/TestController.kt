@@ -9,6 +9,7 @@ import java.util.*
 import java.sql.ResultSet
 
 import java.sql.PreparedStatement
+import com.example.demo.entity.AccountType
 
 
 
@@ -26,10 +27,10 @@ import java.sql.PreparedStatement
 
         var selectsql = "select*from member"
         @GetMapping("/account")
-        fun getAccountData(): ArrayList<Member> {
+        fun getAccountData(): ArrayList<AccountType> {
 //                var memberList:Array<Member>
-            var memberList: ArrayList<Member> = ArrayList()
-            var obj = Member(
+            var memberList: ArrayList<AccountType> = ArrayList()
+            var obj = AccountType(
                 id = "damn",
                 name = "name",
                 email = "mail@nextdrive.io"
@@ -77,10 +78,3 @@ import java.sql.PreparedStatement
         }
 
     }
-
-
-data class Member (
-    var id: String,
-    var name: String,
-    var email: String
-    )
