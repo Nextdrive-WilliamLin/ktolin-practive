@@ -9,16 +9,12 @@ import javax.persistence.*
 @EntityListeners(AuditingEntityListener::class)
 data class AccountType (
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    var id: String? = null,
+    @Column(name="id", unique = true, length = 50)
+    var id: String,
 
-    @Column(unique = true, length = 50)
+    @Column(name="email", unique = true, length = 50)
     var email: String,
 
-    @Column(length = 50)
+    @Column(name="name", length = 50)
     var name: String,
-) {
-    constructor() : this() {
-
-    }
-}
+)
