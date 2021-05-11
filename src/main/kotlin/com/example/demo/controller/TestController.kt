@@ -24,7 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired
         fun getAccountData(): List<AccountType> {
             var memberList: ArrayList<AccountType> = ArrayList()
             var obj = AccountType(
-                id = 0,
+                id = "0",
                 name = "name",
                 email = "mail@nextdrive.io"
             )
