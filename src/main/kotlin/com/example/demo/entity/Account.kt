@@ -1,13 +1,14 @@
 package com.example.demo.entity
 
-import org.hibernate.annotations.TypeDef
-import org.springframework.data.jpa.domain.support.AuditingEntityListener
-import javax.persistence.*
+import javax.persistence.Table
+import javax.persistence.Entity
+import javax.persistence.EntityListeners
+import javax.persistence.Id
+import javax.persistence.Column
 
 @Table(name="member")
 @Entity
-@EntityListeners(AuditingEntityListener::class)
-data class AccountType (
+class AccountType (
     @Id
     @Column(name="id", unique = true, length = 50)
     var id: String,

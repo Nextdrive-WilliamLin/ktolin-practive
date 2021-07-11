@@ -23,16 +23,16 @@ import org.springframework.beans.factory.annotation.Autowired
         @GetMapping("/account")
         fun getAccountData(): List<AccountType> {
             var memberList: ArrayList<AccountType> = ArrayList()
-            var obj = AccountType(
-                id = "0",
-                name = "name",
-                email = "mail@nextdrive.io"
-            )
-            memberList.add(obj)
+
             if(accountRepository!=null) {
                 return accountRepository.findAll();
             }
-
+            var obj = AccountType(
+                id = "0",
+                name = "badass",
+                email = "none@nextdrive.io"
+            )
+            memberList.add(obj)
             return memberList
         }
         @PostMapping("/account")
