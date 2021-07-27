@@ -2,13 +2,12 @@ package com.example.demo.entity
 
 import javax.persistence.Table
 import javax.persistence.Entity
-import javax.persistence.EntityListeners
 import javax.persistence.Id
 import javax.persistence.Column
 
 @Table(name="member")
 @Entity
-class AccountType (
+data class AccountType (
     @Id
     @Column(name="id", unique = true, length = 50)
     var id: String,
