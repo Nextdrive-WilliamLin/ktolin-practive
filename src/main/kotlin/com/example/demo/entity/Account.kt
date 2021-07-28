@@ -1,16 +1,14 @@
 package com.example.demo.entity
 
-import javax.persistence.Table
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Column
+import javax.persistence.*
 
 @Table(name="member")
 @Entity
 data class AccountType (
+
     @Id
-    @Column(name="id", unique = true, length = 50)
-    var id: String,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Int? = null,
 
     @Column(name="email", unique = true, length = 50)
     var email: String,

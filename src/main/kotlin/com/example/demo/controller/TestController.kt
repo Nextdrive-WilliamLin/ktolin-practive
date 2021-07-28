@@ -17,8 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired
 
         @GetMapping("/account")
         fun getAccountData(): List<AccountType> {
-            var memberList: ArrayList<AccountType> = ArrayList()
-
             return accountRepository.findAll();
         }
 
@@ -27,4 +25,9 @@ import org.springframework.beans.factory.annotation.Autowired
             return accountRepository.save(account)
         }
 
+        @PostMapping("/findAccount")
+        fun findAccount(@RequestBody name: String): List<AccountType>? {
+            return accountRepository.findByName(name)
+        }
     }
+
